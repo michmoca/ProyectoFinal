@@ -1,12 +1,14 @@
 package com.example.proyectofinal;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 
@@ -56,6 +58,14 @@ public class RestaurantListFragment extends Fragment {
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
                 return LayoutInflater.from(getActivity()).inflate(R.layout.list_item_restaurant, null);
+            }
+        });
+
+        restaurantListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(getContext(), MealListActivity.class);
+                startActivity(intent);
             }
         });
 
