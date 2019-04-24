@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:background="@android:color/transparent"
-        android:text="USE A DIFFERENT ACCOUNT"
+        android:text="UTILIZAR UNA CUENTA DIFERENTE"
         android:textColor="@color/colorTextGray"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
