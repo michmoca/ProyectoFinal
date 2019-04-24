@@ -1,6 +1,5 @@
 package com.example.proyectofinal;
 
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -13,13 +12,9 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 
 
-/**
- * A simple {@link Fragment} subclass.
- */
-public class RestaurantListFragment extends Fragment {
+public class OrderListFragment extends Fragment {
 
-
-    public RestaurantListFragment() {
+    public OrderListFragment() {
         // Required empty public constructor
     }
 
@@ -28,14 +23,14 @@ public class RestaurantListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_restaurant_list, container, false);
+        return inflater.inflate(R.layout.fragment_order_list, container, false);
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        ListView restaurantListView = (ListView) getActivity().findViewById(R.id.restaurant_list);
+        ListView restaurantListView = (ListView) getActivity().findViewById(R.id.order_list);
         restaurantListView.setAdapter(new BaseAdapter() {
             @Override
             public int getCount() {
@@ -54,7 +49,7 @@ public class RestaurantListFragment extends Fragment {
 
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
-                return LayoutInflater.from(getActivity()).inflate(R.layout.list_item_restaurant, null);
+                return LayoutInflater.from(getActivity()).inflate(R.layout.list_item_order, null);
             }
         });
 

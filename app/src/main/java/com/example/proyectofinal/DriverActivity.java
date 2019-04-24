@@ -10,14 +10,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-public class CustomerActivity extends AppCompatActivity {
+public class DriverActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_customer);
+        setContentView(R.layout.activity_driver);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -26,7 +26,7 @@ public class CustomerActivity extends AppCompatActivity {
         actionbar.setHomeAsUpIndicator(R.drawable.icon_menu_24dp);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        mDrawerLayout = findViewById(R.id.drawer_layout);
+        mDrawerLayout = findViewById(R.id.drawer_layout_driver);
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(
@@ -43,12 +43,12 @@ public class CustomerActivity extends AppCompatActivity {
                         int id = menuItem.getItemId();
                         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
-                        if (id == R.id.nav_restaurant) {
-                            transaction.replace(R.id.content_frame, new RestaurantListFragment()).commit();
-                        } else if (id == R.id.nav_tray) {
-                            transaction.replace(R.id.content_frame, new TrayFragment()).commit();
-                        } else if (id == R.id.nav_order) {
-                            transaction.replace(R.id.content_frame, new OrderFragment()).commit();
+                        if (id == R.id.nav_orders) {
+                            transaction.replace(R.id.content_frame, new OrderListFragment()).commit();
+                        } else if (id == R.id.nav_delivery) {
+                            transaction.replace(R.id.content_frame, new DeliveryFragment()).commit();
+                        } else if (id == R.id.nav_statistic) {
+                            transaction.replace(R.id.content_frame, new StatisticFragment()).commit();
                         } else if (id == R.id.nav_logout) {
 
                         }
@@ -58,7 +58,7 @@ public class CustomerActivity extends AppCompatActivity {
                 });
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.content_frame, new RestaurantListFragment()).commit();
+        transaction.replace(R.id.content_frame, new OrderListFragment()).commit();
     }
 
     @Override
