@@ -39,6 +39,7 @@ public class SignInActivity extends AppCompatActivity {
     private Button customerButton, driverButton;
     private CallbackManager callbackManager;
     private SharedPreferences sharedPref;
+    private Button buttonLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,8 +73,8 @@ public class SignInActivity extends AppCompatActivity {
             }
         });
 
-        //logun
-        final Button buttonLogin = findViewById(R.id.button_login);
+        //Handle login
+        buttonLogin = findViewById(R.id.button_login);
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -98,8 +99,9 @@ public class SignInActivity extends AppCompatActivity {
         });
 
 
+
         callbackManager = CallbackManager.Factory.create();
-        sharedPref = getSharedPreferences("MI_KEY", Context.MODE_PRIVATE);
+        sharedPref = getSharedPreferences("DATOSFB", Context.MODE_PRIVATE);
 
         final Button buttonLogout = (Button) findViewById(R.id.button_logout);
         buttonLogout.setVisibility(View.GONE);
@@ -110,6 +112,7 @@ public class SignInActivity extends AppCompatActivity {
                     public void onSuccess(LoginResult loginResult) {
                         // App code
                         Log.d("FACE ENTRO", loginResult.getAccessToken().getToken());
+                        Log.d("sharedPref NAME", sharedPref.getString("name", ""));
                         GraphRequest request = GraphRequest.newMeRequest(
                                 loginResult.getAccessToken(),
                                 new GraphRequest.GraphJSONObjectCallback() {
@@ -133,6 +136,7 @@ public class SignInActivity extends AppCompatActivity {
                                         }
 
                                         editor.commit();
+
                                     }
                                 });
                         Bundle parameters = new Bundle();
@@ -143,10 +147,8 @@ public class SignInActivity extends AppCompatActivity {
                         ColorDrawable customerbuttonColor = (ColorDrawable) customerButton.getBackground();
                         if(customerbuttonColor.getColor() == getResources().getColor(R.color.colorAccent)){
                             loginToServer(AccessToken.getCurrentAccessToken().getToken(), "customer");
-                            Log.d("CUSTOMER 2", "CUSTOMER 2");
                         }else{
                             loginToServer(AccessToken.getCurrentAccessToken().getToken(), "driver");
-                            Log.d("DRIVER 2", "DRIVER 2");
                         }
                     }
 
@@ -191,6 +193,9 @@ public class SignInActivity extends AppCompatActivity {
 
     private void loginToServer(String facebookAccessToken, final String userType) {
         String url = "https://boiling-mesa-85590.herokuapp.com/api/social/convert-token";
+        buttonLogin.setText("LOADING...");
+        buttonLogin.setClickable(false);
+        buttonLogin.setBackgroundColor(getResources().getColor(R.color.colorLightGray));
 
         JSONObject jsonBody = new JSONObject();
         try {
@@ -248,4 +253,7 @@ public class SignInActivity extends AppCompatActivity {
 
 
     }
+
+
+
 }
