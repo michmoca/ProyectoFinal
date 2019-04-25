@@ -11,16 +11,28 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.squareup.picasso.Picasso;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class CustomerActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
+    private SharedPreferences sharedPref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +70,12 @@ public class CustomerActivity extends AppCompatActivity {
                         } else if (id == R.id.nav_order) {
                             transaction.replace(R.id.content_frame, new OrderFragment()).commit();
                         } else if (id == R.id.nav_logout) {
+
+                            logoutToServer(sharedPref.getString("token", ""));
+                            SharedPreferences.Editor editor = sharedPref.edit();
+                            editor.remove("token");
+                            editor.apply();
+
                             finishAffinity();
                             Intent intent = new Intent(getApplicationContext(), SignInActivity.class);
                             startActivity(intent);
@@ -71,7 +89,7 @@ public class CustomerActivity extends AppCompatActivity {
         transaction.replace(R.id.content_frame, new RestaurantListFragment()).commit();
 
         // Get the User's info
-        SharedPreferences sharedPref = getSharedPreferences("DATOSFB", Context.MODE_PRIVATE);
+        sharedPref = getSharedPreferences("DATOSFB", Context.MODE_PRIVATE);
 
         View header = navigationView.getHeaderView(0);
         ImageView customer_avatar =  header.findViewById(R.id.customer_avatar);
@@ -94,5 +112,40 @@ public class CustomerActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
+    }
+
+    private void logoutToServer(final String token) {
+        String url = "https://boiling-mesa-85590.herokuapp.com/api/social/revoke-token";
+
+        StringRequest postRequest = new StringRequest
+                (Request.Method.POST, url, new Response.Listener<String>() {
+
+                    @Override
+                    public void onResponse(String response) {
+                        // Execute code
+                        Log.d("RESPUESTA DEL SERVIDOR", response.toString());
+                    }
+                }, new Response.ErrorListener() {
+
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // TODO: Handle error
+
+                    }
+                }) {
+
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("token", token);
+                params.put("client_id", "GDUdJrHqsgE8UpPHvhpqMwoUlpwix4Wh90fHuFvJ");
+                params.put("client_secret", "ThVjmbuhmslQKn2ae3LCMTLRgV7Ca3cAfI7lWdPmOzk4z2jI5xucwB37hWrL0IxsgMUjGEVVg3y0mLwvbrtbEAu1qw0XiPPAfWS6bNfdTamYV9UFDeNLF1Ej22ZnIEkJ");
+
+                return params;
+            }
+        };
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+        queue.add(postRequest);
     }
 }
