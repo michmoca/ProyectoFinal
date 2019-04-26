@@ -4,6 +4,12 @@
     <string name="fb_login_protocol_scheme">fb2402011506475666</string>
 
 
+    <string name="API_URL">https://boiling-mesa-85590.herokuapp.com/api</string>
+    <string name="CLIENT_ID">GDUdJrHqsgE8UpPHvhpqMwoUlpwix4Wh90fHuFvJ</string>
+    <string name="CLIENT_SECRET">ThVjmbuhmslQKn2ae3LCMTLRgV7Ca3cAfI7lWdPmOzk4z2jI5xucwB37hWrL0IxsgMUjGEVVg3y0mLwvbrtbEAu1qw0XiPPAfWS6bNfdTamYV9UFDeNLF1Ej22ZnIEkJ</string>
+
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

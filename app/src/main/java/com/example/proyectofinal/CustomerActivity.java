@@ -115,7 +115,7 @@ public class CustomerActivity extends AppCompatActivity {
     }
 
     private void logoutToServer(final String token) {
-        String url = "https://boiling-mesa-85590.herokuapp.com/api/social/revoke-token";
+        String url = getString(R.string.API_URL) + "/social/revoke-token";
 
         StringRequest postRequest = new StringRequest
                 (Request.Method.POST, url, new Response.Listener<String>() {
@@ -138,8 +138,8 @@ public class CustomerActivity extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("token", token);
-                params.put("client_id", "GDUdJrHqsgE8UpPHvhpqMwoUlpwix4Wh90fHuFvJ");
-                params.put("client_secret", "ThVjmbuhmslQKn2ae3LCMTLRgV7Ca3cAfI7lWdPmOzk4z2jI5xucwB37hWrL0IxsgMUjGEVVg3y0mLwvbrtbEAu1qw0XiPPAfWS6bNfdTamYV9UFDeNLF1Ej22ZnIEkJ");
+                params.put("client_id", getString(R.string.CLIENT_ID));
+                params.put("client_secret", getString(R.string.CLIENT_SECRET));
 
                 return params;
             }

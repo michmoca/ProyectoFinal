@@ -192,17 +192,18 @@ public class SignInActivity extends AppCompatActivity {
 
 
     private void loginToServer(String facebookAccessToken, final String userType) {
-        String url = "https://boiling-mesa-85590.herokuapp.com/api/social/convert-token";
-        buttonLogin.setText("LOADING...");
+
+        buttonLogin.setText("CARGANDO...");
         buttonLogin.setClickable(false);
         buttonLogin.setBackgroundColor(getResources().getColor(R.color.colorLightGray));
+
+        String url = getString(R.string.API_URL) + "/social/convert-token";
 
         JSONObject jsonBody = new JSONObject();
         try {
             jsonBody.put("grant_type", "convert_token");
-            jsonBody.put("client_id", "GDUdJrHqsgE8UpPHvhpqMwoUlpwix4Wh90fHuFvJ");
-            jsonBody.put("client_secret", "ThVjmbuhmslQKn2ae3LCMTLRgV7Ca3cAfI7lWdPmOzk4z2jI5xucwB37hWrL0IxsgMUjGEVVg3y0mLwvbrtbEAu1qw0XiPPAfWS6bNfdTamYV9UFDeNLF1Ej22ZnIEkJ");
-            jsonBody.put("backend", "facebook");
+            jsonBody.put("client_id", getString(R.string.CLIENT_ID));
+            jsonBody.put("client_secret", getString(R.string.CLIENT_SECRET));jsonBody.put("backend", "facebook");
             jsonBody.put("token", facebookAccessToken);
             jsonBody.put("user_type", userType);
         } catch (JSONException e) {

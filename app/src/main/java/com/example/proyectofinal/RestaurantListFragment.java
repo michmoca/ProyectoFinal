@@ -5,12 +5,31 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 
 /**
@@ -18,6 +37,9 @@ import android.widget.ListView;
  */
 public class RestaurantListFragment extends Fragment {
 
+    private ArrayList<Restaurant> restaurantArrayList;
+    private RestaurantAdapter adapter;
+    private Restaurant[] restaurants = new Restaurant[]{};
 
     public RestaurantListFragment() {
         // Required empty public constructor
@@ -35,37 +57,91 @@ public class RestaurantListFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        restaurantArrayList = new ArrayList<Restaurant>();
+        adapter = new RestaurantAdapter(this.getActivity(), restaurantArrayList);
+
         ListView restaurantListView = (ListView) getActivity().findViewById(R.id.restaurant_list);
-        restaurantListView.setAdapter(new BaseAdapter() {
+        restaurantListView.setAdapter(adapter);
+
+
+        //obtener la lista de restaurantes
+        getRestaurants();
+
+        //agregar la funcion al buscador
+        addSearchFunction();
+    }
+
+    private void getRestaurants() {
+        String url = getString(R.string.API_URL) + "/customer/restaurants/";
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
+                Request.Method.GET,
+                url,
+                null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.d("RESTAURANTS LIST", response.toString());
+
+                        // Convertir JSON data a JSON Array
+                        JSONArray restaurantsJSONArray = null;
+
+                        try {
+                            restaurantsJSONArray = response.getJSONArray("restaurants");
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                        // Convertir Json Array a Restaurant Array
+                        Gson gson = new Gson();
+                        restaurants = gson.fromJson(restaurantsJSONArray.toString(), Restaurant[].class);
+//
+                        // Actualizar ListView con datos actualizados
+                       restaurantArrayList.clear();
+                       restaurantArrayList.addAll(new ArrayList<Restaurant>(Arrays.asList(restaurants)));
+                       adapter.notifyDataSetChanged();
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                }
+        );
+
+        RequestQueue queue = Volley.newRequestQueue(getActivity());
+        queue.add(jsonObjectRequest);
+    }
+
+    private void addSearchFunction() {
+        EditText searchInput = (EditText) getActivity().findViewById(R.id.res_search);
+
+        searchInput.addTextChangedListener(new TextWatcher() {
             @Override
-            public int getCount() {
-                return 4;
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
             }
 
             @Override
-            public Object getItem(int position) {
-                return null;
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                Log.d("BUSCANDO", charSequence.toString());
+
+                // Update the Restaurant List
+                restaurantArrayList.clear();
+                for (Restaurant restaurant : restaurants) {
+                    if (restaurant.getName().toLowerCase().contains(charSequence.toString().toLowerCase())) {
+                        restaurantArrayList.add(restaurant);
+                    }
+                }
+                adapter.notifyDataSetChanged();
             }
 
             @Override
-            public long getItemId(int position) {
-                return 0;
-            }
+            public void afterTextChanged(Editable editable) {
 
-            @Override
-            public View getView(int position, View convertView, ViewGroup parent) {
-                return LayoutInflater.from(getActivity()).inflate(R.layout.list_item_restaurant, null);
             }
         });
-
-        restaurantListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getContext(), MealListActivity.class);
-                startActivity(intent);
-            }
-        });
-
     }
 
 }
