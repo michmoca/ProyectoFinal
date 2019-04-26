@@ -18,7 +18,12 @@ public class MealListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meal_list);
-        getSupportActionBar().setTitle("hola soy restaurante");
+
+        Intent intent = getIntent();
+        String restaurantId = intent.getStringExtra("restaurantId");
+        String restaurantName = intent.getStringExtra("restaurantName");
+
+        getSupportActionBar().setTitle(restaurantName);
 
         ListView listView =  findViewById(R.id.meal_list);
         listView.setAdapter(new BaseAdapter() {
