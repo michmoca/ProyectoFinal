@@ -1,8 +1,10 @@
-package com.example.proyectofinal;
+package com.example.proyectofinal.Activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
+
+import com.example.proyectofinal.R;
 
 public class MealDetailActivity extends AppCompatActivity {
 

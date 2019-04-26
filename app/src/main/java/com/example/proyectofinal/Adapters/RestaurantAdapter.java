@@ -1,4 +1,4 @@
-package com.example.proyectofinal;
+package com.example.proyectofinal.Adapters;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,6 +9,9 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.proyectofinal.Activities.MealListActivity;
+import com.example.proyectofinal.Objects.Restaurant;
+import com.example.proyectofinal.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;

@@ -1,7 +1,6 @@
-package com.example.proyectofinal;
+package com.example.proyectofinal.Fragments;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -11,8 +10,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 
@@ -22,6 +19,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.proyectofinal.R;
+import com.example.proyectofinal.Objects.Restaurant;
+import com.example.proyectofinal.Adapters.RestaurantAdapter;
 import com.google.gson.Gson;
 
 import org.json.JSONArray;

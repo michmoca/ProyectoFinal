@@ -1,4 +1,4 @@
-package com.example.proyectofinal;
+package com.example.proyectofinal.Activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -24,6 +24,11 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.proyectofinal.Utilities.CircleTransform;
+import com.example.proyectofinal.Fragments.DeliveryFragment;
+import com.example.proyectofinal.Fragments.OrderListFragment;
+import com.example.proyectofinal.R;
+import com.example.proyectofinal.Fragments.StatisticFragment;
 import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;

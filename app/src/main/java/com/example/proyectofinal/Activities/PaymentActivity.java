@@ -1,7 +1,9 @@
-package com.example.proyectofinal;
+package com.example.proyectofinal.Activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.proyectofinal.R;
 
 public class PaymentActivity extends AppCompatActivity {
 

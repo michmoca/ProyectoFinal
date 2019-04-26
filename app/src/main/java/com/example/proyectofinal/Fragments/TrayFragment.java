@@ -1,6 +1,7 @@
-package com.example.proyectofinal;
+package com.example.proyectofinal.Fragments;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -8,16 +9,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ListView;
+
+import com.example.proyectofinal.Activities.PaymentActivity;
+import com.example.proyectofinal.R;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class OrderFragment extends Fragment {
+public class TrayFragment extends Fragment {
 
 
-    public OrderFragment() {
+    public TrayFragment() {
         // Required empty public constructor
     }
 
@@ -26,21 +31,18 @@ public class OrderFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_order, container, false);
+        return inflater.inflate(R.layout.fragment_tray, container, false);
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        //restaurantArrayList = new ArrayList<Restaurant>();
-        //adapter = new RestaurantAdapter(this.getActivity(), restaurantArrayList);
-
-        ListView restaurantListView =  getActivity().findViewById(R.id.tray_list);
-        restaurantListView.setAdapter(new BaseAdapter() {
+        ListView listView = getActivity().findViewById(R.id.tray_list);
+        listView.setAdapter(new BaseAdapter() {
             @Override
             public int getCount() {
-                return 4;
+                return 3;
             }
 
             @Override
@@ -59,6 +61,14 @@ public class OrderFragment extends Fragment {
             }
         });
 
+        Button buttonAddPayment = getActivity().findViewById(R.id.button_add_payment);
+        buttonAddPayment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), PaymentActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 }

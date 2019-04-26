@@ -1,4 +1,4 @@
-package com.example.proyectofinal;
+package com.example.proyectofinal.Utilities;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapShader;

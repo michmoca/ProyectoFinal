@@ -1,7 +1,6 @@
-package com.example.proyectofinal;
+package com.example.proyectofinal.Fragments;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,17 +8,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.ListView;
+
+import com.example.proyectofinal.R;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class TrayFragment extends Fragment {
+public class OrderFragment extends Fragment {
 
 
-    public TrayFragment() {
+    public OrderFragment() {
         // Required empty public constructor
     }
 
@@ -28,18 +28,21 @@ public class TrayFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tray, container, false);
+        return inflater.inflate(R.layout.fragment_order, container, false);
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        ListView listView = getActivity().findViewById(R.id.tray_list);
-        listView.setAdapter(new BaseAdapter() {
+        //restaurantArrayList = new ArrayList<Restaurant>();
+        //adapter = new RestaurantAdapter(this.getActivity(), restaurantArrayList);
+
+        ListView restaurantListView =  getActivity().findViewById(R.id.tray_list);
+        restaurantListView.setAdapter(new BaseAdapter() {
             @Override
             public int getCount() {
-                return 3;
+                return 4;
             }
 
             @Override
@@ -58,14 +61,6 @@ public class TrayFragment extends Fragment {
             }
         });
 
-        Button buttonAddPayment = getActivity().findViewById(R.id.button_add_payment);
-        buttonAddPayment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), PaymentActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 
 }
