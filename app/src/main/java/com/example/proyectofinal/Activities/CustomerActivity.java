@@ -33,6 +33,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class CustomerActivity extends AppCompatActivity {
 
@@ -90,8 +91,20 @@ public class CustomerActivity extends AppCompatActivity {
                     }
                 });
 
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.content_frame, new RestaurantListFragment()).commit();
+        Intent intent = getIntent();
+        String screen = intent.getStringExtra("screen");
+
+        if (Objects.equals(screen, "tray")) {
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.content_frame, new TrayFragment()).commit();
+        } else if (Objects.equals(screen, "order")) {
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.content_frame, new OrderFragment()).commit();
+        } else {
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.content_frame, new RestaurantListFragment()).commit();
+        }
+
 
         // Get the User's info
         sharedPref = getSharedPreferences("DATOSFB", Context.MODE_PRIVATE);

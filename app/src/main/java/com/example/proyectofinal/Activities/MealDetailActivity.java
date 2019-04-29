@@ -133,18 +133,9 @@ public class MealDetailActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (R.id.tray_button == id) {
-            /*Intent intent = new Intent(getApplicationContext(), CustomerActivity.class);
+            Intent intent = new Intent(getApplicationContext(), CustomerActivity.class);
             intent.putExtra("screen", "tray");
-            startActivity(intent);*/
-            new AsyncTask<Void, Void, Void>(){
-                @Override
-                protected Void doInBackground(Void... voids){
-                    for (Tray tray: db.trayDao().getAll()){
-                        Log.d("Tray ITEM", tray.getMealName() + " - " + tray.getMealQuantity());
-                    }
-                    return null;
-                }
-            }.execute();
+            startActivity(intent);
 
         }
 
