@@ -60,7 +60,7 @@ public class RestaurantListFragment extends Fragment {
         restaurantArrayList = new ArrayList<Restaurant>();
         adapter = new RestaurantAdapter(this.getActivity(), restaurantArrayList);
 
-        ListView restaurantListView = (ListView) getActivity().findViewById(R.id.restaurant_list);
+        ListView restaurantListView =  getActivity().findViewById(R.id.restaurant_list);
         restaurantListView.setAdapter(adapter);
 
 

@@ -23,8 +23,9 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" /> </intent-filter>
         </activity>
 
-        <activity android:name=".Activities.DriverActivity">
-
+        <activity
+            android:name=".Activities.DriverActivity"
+            android:launchMode="singleTop">
         </activity>
 
 
@@ -35,10 +36,12 @@
             android:theme="@style/AppTheme.ActionBar" />
         <activity
             android:name=".Activities.MealListActivity"
+            android:launchMode="singleTop"
             android:parentActivityName=".Activities.CustomerActivity"
             android:theme="@style/AppTheme.ActionBar" />
         <activity
             android:name=".Activities.MealDetailActivity"
+            android:launchMode="singleTop"
             android:parentActivityName=".Activities.MealListActivity"
             android:theme="@style/AppTheme.ActionBar" />
         <activity

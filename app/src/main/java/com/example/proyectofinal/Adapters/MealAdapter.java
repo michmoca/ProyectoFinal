@@ -58,7 +58,7 @@ public class MealAdapter extends BaseAdapter {
 
         mealName.setText(meal.getName());
         mealDesc.setText(meal.getShort_description());
-        mealPrice.setText("₡" + meal.getPrice());
+        mealPrice.setText("$" + meal.getPrice());
         Picasso.with(activity.getApplicationContext()).load(meal.getImage()).fit().into(mealImage);
 
         view.setOnClickListener(new View.OnClickListener() {
