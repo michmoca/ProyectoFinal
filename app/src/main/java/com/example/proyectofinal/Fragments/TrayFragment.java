@@ -43,9 +43,11 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.gson.Gson;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -117,6 +119,11 @@ public class TrayFragment extends Fragment implements OnMapReadyCallback {
 
         // Handle Map Address
         handleMapAddress();
+
+        // Handle Add Payment Button Click event
+        handleAddPayment();
+
+
     }
 
     @SuppressLint("StaticFieldLeak")
@@ -291,6 +298,33 @@ public class TrayFragment extends Fragment implements OnMapReadyCallback {
                 }
 
                 return false;
+            }
+        });
+    }
+
+    private void handleAddPayment() {
+        Button buttonAddPayment = (Button) getActivity().findViewById(R.id.button_add_payment);
+        buttonAddPayment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (address.getText().toString().equals("")) {
+                    address.setError("La dirección no puede estar en blanco");
+                } else {
+                    Intent intent = new Intent(getContext(), PaymentActivity.class);
+                    intent.putExtra("restaurantId", trayList.get(0).getRestaurantId());
+                    intent.putExtra("address", address.getText().toString());
+
+                    ArrayList<HashMap<String, Integer>> orderDetails = new ArrayList<HashMap<String, Integer>>();
+                    for (Tray tray: trayList) {
+                        HashMap<String, Integer> map = new HashMap<String, Integer>();
+                        map.put("meal_id", Integer.parseInt(tray.getMealId()));
+                        map.put("quantity", tray.getMealQuantity());
+                        orderDetails.add(map);
+                    }
+                    intent.putExtra("orderDetails", new Gson().toJson(orderDetails));
+
+                    startActivity(intent);
+                }
             }
         });
     }
