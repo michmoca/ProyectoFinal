@@ -115,7 +115,7 @@ public class RestaurantListFragment extends Fragment {
     }
 
     private void addSearchFunction() {
-        EditText searchInput = (EditText) getActivity().findViewById(R.id.res_search);
+        EditText searchInput =  getActivity().findViewById(R.id.res_search);
 
         searchInput.addTextChangedListener(new TextWatcher() {
             @Override
