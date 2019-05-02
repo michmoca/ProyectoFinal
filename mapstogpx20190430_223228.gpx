@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1" creator="mapstogpx.com" version="1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www.garmin.com/xmlschemas/GpxExtensionsv3.xsd http://www.garmin.com/xmlschemas/TrackPointExtension/v1 http://www.garmin.com/xmlschemas/TrackPointExtensionv1.xsd">
+  <metadata>
+    <link href="http://www.mapstogpx.com">
+      <text>Sverrir Sigmundarson</text>
+    </link>
+    <!--desc>Map data ©2019 Google</desc-->
+    <!--copyright author="Google Inc">
+    	<year>2019</year>
+    	<license>https://developers.google.com/maps/terms</license>
+    </copyright-->
+    <!--url>https://www.google.co.uk/maps/dir/SUSHI TO GO Liberia, 100 Norte, 100 Oeste y 25 Sur de la Municipalidad, Provincia de Guanacaste, Liberia, 50101/Mall Centro Plaza Liberia, Provincia de Guanacaste, Liberia/@10.6214264,-85.4470612,15z/data=!3m1!4b1!4m13!4m12!1m5!1m1!1s0x8f757d2a2d18b2f3:0x76bd2c85f20730d!2m2!1d-85.4401203!2d10.6308724!1m5!1m1!1s0x8f7562cd3027d221:0x9daf4ab05630a2a0!2m2!1d-85.437235!2d10.6179936?hl=en</url-->
+    <time>2019-04-30T16:32:22Z</time>
+  </metadata>
+  <wpt lat="10.6308724" lon="-85.4401203">
+    <name>SUSHI TO GO Liberia</name>
+    <desc>SUSHI TO GO Liberia, 100 Norte, 100 Oeste y 25 Sur de la Municipalidad, Provincia de Guanacaste, Liberia, 50101, Costa Rica</desc>
+  </wpt>
+  <wpt lat="10.6179936" lon="-85.437235">
+    <name>Mall Centro Plaza Liberia</name>
+    <desc>Mall Centro Plaza Liberia, Provincia de Guanacaste, Liberia, Costa Rica</desc>
+  </wpt>
+<trk>
+  <name>SUSHI TO GO Liberia to Mall Centro Plaza Liberia</name>
+  <number>1</number>
+  <trkseg>
+  <trkpt lat="10.6308529" lon="-85.4401627">
+    <name>TP001</name>
+  </trkpt>
+  <trkpt lat="10.6308529" lon="-85.4401627">
+    <name>TP002</name>
+  </trkpt>
+  <trkpt lat="10.6308529" lon="-85.4401627">
+    <name>TP003</name>
+  </trkpt>
+  <trkpt lat="10.6303" lon="-85.4399">
+    <name>TP004</name>
+  </trkpt>
+  <trkpt lat="10.62953" lon="-85.43957">
+    <name>TP005</name>
+  </trkpt>
+  <trkpt lat="10.62887" lon="-85.43926">
+    <name>TP006</name>
+  </trkpt>
+  <trkpt lat="10.62881" lon="-85.43924">
+    <name>TP007</name>
+  </trkpt>
+  <trkpt lat="10.62876" lon="-85.43921">
+    <name>TP008</name>
+  </trkpt>
+  <trkpt lat="10.62802" lon="-85.43889">
+    <name>TP009</name>
+  </trkpt>
+  <trkpt lat="10.62718" lon="-85.43849">
+    <name>TP010</name>
+  </trkpt>
+  <trkpt lat="10.627175" lon="-85.4384919">
+    <name>TP011</name>
+  </trkpt>
+  <trkpt lat="10.627175" lon="-85.4384919">
+    <name>TP012</name>
+  </trkpt>
+  <trkpt lat="10.62752" lon="-85.43769">
+    <name>TP013</name>
+  </trkpt>
+  <trkpt lat="10.62784" lon="-85.43699">
+    <name>TP014</name>
+  </trkpt>
+  <trkpt lat="10.6278397" lon="-85.4369866">
+    <name>TP015</name>
+  </trkpt>
+  <trkpt lat="10.6278397" lon="-85.4369866">
+    <name>TP016</name>
+  </trkpt>
+  <trkpt lat="10.62703" lon="-85.43659">
+    <name>TP017</name>
+  </trkpt>
+  <trkpt lat="10.62621" lon="-85.43623">
+    <name>TP018</name>
+  </trkpt>
+  <trkpt lat="10.62552" lon="-85.43591">
+    <name>TP019</name>
+  </trkpt>
+  <trkpt lat="10.62543" lon="-85.43587">
+    <name>TP020</name>
+  </trkpt>
+  <trkpt lat="10.62486" lon="-85.43557">
+    <name>TP021</name>
+  </trkpt>
+  <trkpt lat="10.6242" lon="-85.43528">
+    <name>TP022</name>
+  </trkpt>
+  <trkpt lat="10.62332" lon="-85.4349">
+    <name>TP023</name>
+  </trkpt>
+  <trkpt lat="10.62242" lon="-85.43448">
+    <name>TP024</name>
+  </trkpt>
+  <trkpt lat="10.6221" lon="-85.43433">
+    <name>TP025</name>
+  </trkpt>
+  <trkpt lat="10.62178" lon="-85.43418">
+    <name>TP026</name>
+  </trkpt>
+  <trkpt lat="10.62172" lon="-85.43415">
+    <name>TP027</name>
+  </trkpt>
+  <trkpt lat="10.62119" lon="-85.4339">
+    <name>TP028</name>
+  </trkpt>
+  <trkpt lat="10.62113" lon="-85.43388">
+    <name>TP029</name>
+  </trkpt>
+  <trkpt lat="10.6211254" lon="-85.433882">
+    <name>TP030</name>
+  </trkpt>
+  <trkpt lat="10.6211254" lon="-85.433882">
+    <name>TP031</name>
+  </trkpt>
+  <trkpt lat="10.62007" lon="-85.43565">
+    <name>TP032</name>
+  </trkpt>
+  <trkpt lat="10.62" lon="-85.43577">
+    <name>TP033</name>
+  </trkpt>
+  <trkpt lat="10.61929" lon="-85.43698">
+    <name>TP034</name>
+  </trkpt>
+  <trkpt lat="10.61915" lon="-85.43722">
+    <name>TP035</name>
+  </trkpt>
+  <trkpt lat="10.6191" lon="-85.43731">
+    <name>TP036</name>
+  </trkpt>
+  <trkpt lat="10.61905" lon="-85.43741">
+    <name>TP037</name>
+  </trkpt>
+  <trkpt lat="10.61901" lon="-85.43748">
+    <name>TP038</name>
+  </trkpt>
+  <trkpt lat="10.61898" lon="-85.43754">
+    <name>TP039</name>
+  </trkpt>
+  <trkpt lat="10.61898" lon="-85.43755">
+    <name>TP040</name>
+  </trkpt>
+  <trkpt lat="10.61884" lon="-85.43783">
+    <name>TP041</name>
+  </trkpt>
+  <trkpt lat="10.6188376" lon="-85.4378305">
+    <name>TP042</name>
+  </trkpt>
+  <trkpt lat="10.6188376" lon="-85.4378305">
+    <name>TP043</name>
+  </trkpt>
+  <trkpt lat="10.61874" lon="-85.43776">
+    <name>TP044</name>
+  </trkpt>
+  <trkpt lat="10.61866" lon="-85.4377">
+    <name>TP045</name>
+  </trkpt>
+  <trkpt lat="10.61844" lon="-85.43756">
+    <name>TP046</name>
+  </trkpt>
+  <trkpt lat="10.61834" lon="-85.43756">
+    <name>TP047</name>
+  </trkpt>
+  <trkpt lat="10.6183" lon="-85.43754">
+    <name>TP048</name>
+  </trkpt>
+  <trkpt lat="10.61825" lon="-85.4375">
+    <name>TP049</name>
+  </trkpt>
+  <trkpt lat="10.61821" lon="-85.43746">
+    <name>TP050</name>
+  </trkpt>
+  <trkpt lat="10.61817" lon="-85.43738">
+    <name>TP051</name>
+  </trkpt>
+  <trkpt lat="10.61798" lon="-85.43727">
+    <name>TP052</name>
+  </trkpt>
+  <trkpt lat="10.617984" lon="-85.4372666">
+    <name>TP053</name>
+  </trkpt>
+  </trkseg>
+</trk>
+</gpx>
